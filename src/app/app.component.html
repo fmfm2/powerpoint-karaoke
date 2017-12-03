@@ -1,15 +1,18 @@
-<button *ngIf="!selected" (click)="onSelect()">START</button>
+<div *ngIf="!isFetching()">
+  <button *ngIf="!selected" (click)="onSelect()">スタート</button>
 
-<ul *ngIf="selected">
-  <li class="jsc-slide" (click)="goToNext()">
-    <h1>{{selected}}</h1>
-  </li>
+  <ul *ngIf="selected">
+    <li class="jsc-slide" (click)="goToNext()">
+      <h1>{{selected}}</h1>
+    </li>
 
-  <li class="jsc-slide" *ngFor="let image of images" (click)="goToNext()">
-    <img [src]="image">
-  </li>
+    <li class="jsc-slide" *ngFor="let image of images; let i = index;" (click)="goToNext()">
+      <span>{{i + 1}}</span>
+      <img [src]="image">
+    </li>
 
-  <li class="jsc-slide">
-    <h1>終わり</h1>
-  </li>
-</ul>
+    <li class="jsc-slide" (click)="restart()">
+      <h1>おわり</h1>
+    </li>
+  </ul>
+</div>

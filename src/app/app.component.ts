@@ -10,10 +10,9 @@ import * as xml2js from 'xml2js';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public title: string = 'app';
-  private items: Array<string>;
+  private items: Array<string> = [];
   public selected: string;
-  public images: Array<string>;
+  public images: Array<string> = [];
   private currentSlideNumber: number = 0;
 
   constructor(
@@ -25,6 +24,24 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.fetchTrendWords();
     this.getRandomImages();
+
+    this.bindKeyBoard();
+  }
+
+  public isFetching(): boolean {
+    return this.items.length === 0 || this.images.length === 0;
+  }
+
+  private bindKeyBoard(): void {
+    document.onkeydown = (e) => {
+      if (e.code === 'ArrowRight' && !this.selected) {
+        this.onSelect();
+      } else if (this.currentSlideNumber === this.images.length + 1) {
+        this.restart()
+      } else {
+        this.goToNext();
+      }
+    };
   }
 
   private fetchTrendWords(): void {
@@ -89,10 +106,17 @@ export class AppComponent implements OnInit {
     const currentSlideNumber = this.currentSlideNumber;
     const currentSlide = <HTMLLIElement>slides[currentSlideNumber];
     const nextSlide = <HTMLLIElement>slides[this.currentSlideNumber + 1];
+
+    if (!currentSlide || !nextSlide) return;
+
     currentSlide.style.display = 'none';
     nextSlide.style.display = 'block';
 
     this.currentSlideNumber++;
+  }
+
+  public restart(): void {
+    location.reload();
   }
 
   private shuffle(array: Array<any>): Array<any> {
