@@ -1,0 +1,108 @@
+.app {
+  * {
+    font-family: "Sawarabi Mincho";
+    font-weight: bold;
+  }
+
+  fieldset {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+
+  button {
+    padding: 0.5em 1em;
+    // 文字詰め
+    padding-right: 0.75em;
+    white-space: nowrap;
+
+    @media (orientation:portrait) {
+      font-size: calc(100vw / 5 - 10px - 10px)
+    }
+
+    @media (orientation:landscape) {
+      font-size: calc(100vh / 4 - 20px - 20px);
+    }
+  }
+
+  .is-landscape {
+    @media (orientation:portrait) {
+      display: none;
+    }
+
+    @media (orientation:landscape) {
+      display: block;
+      font-weight: normal;
+      font-style: italic;
+      color: #464646;
+    }
+
+    > kbd {
+      margin-right: 0.25em;
+      font-weight: normal;
+    }
+  }
+
+  ul {
+    > li {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      &:nth-child(n+2) {
+        display: none;
+      }
+
+      > span {
+        z-index: 1;
+        position: fixed;
+        top: 5vh;
+        left: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.5em;
+        height: 1.5em;
+        background-color: rgba(0,0,0, 0.5);
+        border-radius: 100%;
+        font-size: 10vh;
+        font-style: italic;
+        color: rgba(255,255,255, 1);
+      }
+
+      > h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        text-align: center;
+        transform: translate(-50%, -50%);
+
+        @media (orientation:portrait) {
+          font-size: calc(100vw / 5 - 10px - 10px)
+        }
+
+        @media (orientation:landscape) {
+          font-size: calc(100vh / 4 - 20px - 20px);
+        }
+      }
+
+      > img {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        height: auto;
+        max-width: 100vw;
+        max-height: 100vh;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}

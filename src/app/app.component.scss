@@ -1,0 +1,137 @@
+@import '../assets/_coffee.composition';
+
+.landing {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Mplus 1p";
+
+  > * {
+    position: relative;
+  }
+
+  > .dummy-header {
+    height: 2.5em;
+    background-color: rgba(#E6E6E6, 0.5);
+  }
+
+  > header {
+    z-index: 1;
+    padding: 80px 40px;
+    background-color: rgba(beige, 0.5);
+
+    > .g-wrapper {
+      > *:not(figure) {
+        position: relative;
+        z-index: 1;
+      }
+
+      > h1 {
+        margin-top: 0;
+        font-size: 2.25em;
+      }
+
+      > div {
+        margin-top: 20px;
+        margin-left: 45px;
+      }
+
+      > figure {
+        position: absolute;
+        top: -40px;
+        right: -20px;
+        display: flex;
+        flex-direction: column;
+
+        > img {
+          display: inline-block;
+          width: auto;
+          height: auto;
+          max-width: 240px;
+          border: 0.5em solid #FFFFFF;
+          box-shadow: 0 0 0.5em #666666;
+
+          + img {
+            margin-top: 10px;
+          }
+
+          @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+              filter: sepia(#{$i * 0.15});
+              margin-left: #{(1 - $i) * 15px};
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > main {
+    z-index: 0;
+    padding: 80px 40px;
+    background-color: rgba(#D1F0FF, 0.5);
+
+    > .g-wrapper {
+      > h2 {
+        margin-top: 0;
+      }
+
+      > section {
+        > ol {
+          > li {
+            > figure {
+              position: relative;
+              display: block;
+              width: 7.5em;
+              height: 7.5em;
+              margin-left: 70px;
+              background-color: #FFFFFF;
+              border-radius: 100%;
+              box-shadow: 0 2px 0 rgba(#666666, 0.5);
+
+              > img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 5em;
+                height: 5em;
+                transform: translate(-50%, -50%);
+              }
+            }
+          }
+        }
+
+        > div {
+          margin-top: 20px;
+          margin-left: 55px;
+        }
+      }
+    }
+  }
+
+  > footer {
+    padding: 40px 10px;
+    background-color: rgba(#E6E6E6, 0.5);
+    font-size: 12px;
+    font-family: initial;
+
+    > div {
+      > ul {
+        margin-top: 0;
+        margin-left: -3em;
+      }
+
+      > small {
+        font-style: italic;
+      }
+
+      a {
+        color: #666666;
+
+        &:hover, &:active {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+// Referred: https://codepen.io/ifdiego/pen/QvqNYP
+$composition: #7f5431;
+$coffee: #5a3d37;
+$milk: #ffffff;
+$water: #a7fffd;
+$foam: #ebc475;
+$chocolate: #ba733b;
+
+.composition {
+  opacity: 0.5;
+  z-index: 0;
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .circles {
+    height: 80vh;
+    transform: scale(1.5);
+  }
+
+  .circles div {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .circles .coffee {
+    width: 15em;
+    height: 15em;
+    z-index: 400;
+  }
+
+  .circles .water {
+    width: 10em;
+    height: 10em;
+    order: -1;
+    margin-top: 7em;
+    margin-right: -4em;
+    z-index: 300;
+  }
+
+  .circles .milk {
+    width: 12em;
+    height: 12em;
+    z-index: 300;
+    margin-bottom: -12em;
+    margin-left: 10em;
+    margin-right: -7em;
+  }
+
+  .circles .foam {
+    width: 12em;
+    height: 12em;
+    z-index: 200;
+    margin-left: -10em;
+  }
+
+  .circles .chocolate {
+    width: 8em;
+    height: 8em;
+    z-index: 100;
+    margin-top: 5em;
+    margin-right: 7em;
+    margin-bottom: -4em;
+  }
+
+  .boxes {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .box {
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0 auto;
+  }
+
+  .boxes p,
+  .kinds {
+    color: #fff;
+    text-transform: uppercase;
+    font-family: monospace;
+  }
+
+  .boxes p {
+    text-align: center;
+  }
+
+  .milk,
+  .foam,
+  .coffee,
+  .water,
+  .chocolate {
+    opacity: .5;
+  }
+
+  .milk {
+    background-color: $milk;
+  }
+
+  .foam {
+    background-color: $foam;
+  }
+
+  .coffee {
+    background-color: $coffee;
+  }
+
+  .water {
+    background-color: $water;
+  }
+
+  .chocolate {
+    background-color: $chocolate;
+  }
+
+  // referred: https://codepen.io/dudleystorey/pen/MwbYaL
+  svg {
+    opacity: 0.25;
+    position: absolute;
+
+    @media (min-width: 721px) {
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    @media (max-width: 720px) {
+      top: 0;
+      height: 100vh;
+    }
+  }
+}

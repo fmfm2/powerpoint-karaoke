@@ -1,0 +1,175 @@
+<div class="landing" *ngIf="!isFetching()">
+  <div class="composition">
+    <!-- Author: https://codepen.io/ifdiego/pen/QvqNYP -->
+    <div class="circles">
+      <div>
+        <div class="milk"></div>
+        <div class="chocolate"></div>
+      </div>
+      <div>
+        <div class="coffee"></div>
+        <div class="water"></div>
+        <div class="foam"></div>
+      </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 602 522">
+      <title>Composition in Color A, 1917, by Piet Mondrian</title>
+      <!-- Author: https://codepen.io/dudleystorey/pen/MwbYaL -->
+      <g id="Reds" fill="#E12432">
+      	<rect x="488.5" y="408" width="58.8" height="59.3"/>
+      	<rect x="364.2" y="218" width="89.8" height="81.3"/>
+      	<rect x="584" y="147.3" width="18" height="65.7"/>
+      	<rect x="191.7" y="87.8" width="59.3" height="62.5"/>
+      	<rect x="82" y="172.3" width="57.3" height="65"/>
+      	<rect x="278.3" y="306.6" width="63" height="55.1"/>
+      </g>
+      <g id="Blues" fill="#026BA6">
+      	<rect x="288.3" y="42" width="43.7" height="81.7"/>
+      	<rect x="404.3" y="127" width="68.3" height="71"/>
+      	<rect x="531" y="248.3" width="53" height="56"/>
+      	<rect x="464.3" y="378.7" width="48.3" height="49.7"/>
+      	<rect x="355" y="395.3" width="58.7" height="52.7"/>
+      	<rect x="382.7" y="487.3" width="55.3" height="34.7"/>
+      	<rect x="256" y="435.7" width="52.7" height="49.3"/>
+      	<rect x="193" y="282.7" width="61.3" height="61.3"/>
+      </g>
+      <g id="Oranges" fill="#C74C26" >
+      	<rect x="162.7" y="203.3" width="55.7" height="59.7"/>
+      	<rect x="101.3" y="133.3" width="57.3" height="66.3"/>
+      	<rect x="310.7" y="119.7" width="61" height="61.3"/>
+      	<rect x="461.7" y="31.3" width="50.7" height="47.7"/>
+      	<rect x="451" y="100" width="52.3" height="50.3"/>
+      	<rect x="469.3" y="269.2" width="74.4" height="74.8"/>
+      	<rect x="594.7" y="333.7" width="7.4" height="50.7"/>
+      	<rect x="341.3" y="446.7" width="50.7" height="53"/>
+      	<rect x="341.3" y="306.6" width="52.2" height="55.1"/>
+      	<rect x="227.3" y="361.7" width="98.7" height="53.7"/>
+      	<rect x="39.3" y="295.3" width="57.3" height="59.2"/>
+      </g>
+      <g id="Blacks">
+      	<rect x="82" y="93" width="11" height="21"/>
+      	<rect x="200.7" y="7.7" width="24" height="10.7"/>
+      	<rect x="274.7" y="82.7" width="24" height="10.3"/>
+      	<rect x="294" y="133.3" width="11" height="34"/>
+      	<rect x="294" y="181" width="25.3" height="11.3"/>
+      	<rect x="255.3" y="192.3" width="11" height="29.3"/>
+      	<rect x="371.7" y="13" width="21.7" height="10"/>
+      	<rect x="349.3" y="106" width="20.7" height="10.3"/>
+      	<rect x="370" y="201" width="21.3" height="10.3"/>
+      	<rect x="460" y="190.7" width="22" height="9"/>
+      	<rect x="507.3" y="96" width="10" height="20.3"/>
+      	<rect x="568.7" y="153.3" width="10" height="23"/>
+      	<rect x="521.3" y="263.3" width="19.3" height="11.7"/>
+      	<rect x="387" y="281.3" width="34.7" height="11"/>
+      	<rect x="358.3" y="275" width="11.7" height="45"/>
+      	<rect x="274.3" y="299.3" width="23.7" height="10.3"/>
+      	<rect x="326" y="361.7" width="21.7" height="12.3"/>
+      	<rect x="454" y="314.3" width="24.3" height="11.3"/>
+      	<rect x="509.6" y="338.7" width="10.1" height="16"/>
+      	<rect x="381.3" y="449.3" width="24.3" height="10"/>
+      	<rect x="331.7" y="485" width="9.7" height="26"/>
+      	<rect x="287" y="428.3" width="25" height="10.3"/>
+      	<rect x="220.7" y="349" width="23.7" height="11"/>
+      	<rect x="124.3" y="323.7" width="23.3" height="12"/>
+      	<rect x="130" y="190.7" width="16" height="9"/>
+      	<rect x="87.3" y="354.5" width="18.7" height="10.5"/>
+      	<rect x="96.7" y="452.7" width="21" height="9.3"/>
+      	<rect x="187.3" y="446" width="11.3" height="27.7"/>
+      	<rect x="17.7" y="230.3" width="11.3" height="27.3"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="dummy-header"></div>
+
+  <header>
+    <div class="g-wrapper">
+      <h1>即興・パワポカラオケ！</h1>
+
+      <ul>
+        <li>プレゼンテーションの練習に。</li>
+        <li>飲み会のコンテンツに。</li>
+        <li>ひとりで寂しいときの気休めに。</li>
+      </ul>
+
+      <div>
+        <a class="g-cta" routerLink="/slideshow">さっそく遊ぶ（無料）</a>
+      </div>
+
+      <figure>
+        <img src="/assets/key-visual.jpg" alt="" />
+        <img *ngFor="let image of images; let i of index;" [src]="image" alt="" />
+        <!-- <img [src]="images[0]" alt="" />
+        <img [src]="images[1]" alt="" />
+        <img [src]="images[2]" alt="" />
+        <img [src]="images[3]" alt="" /> -->
+      </figure>
+    </div>
+  </header>
+
+  <main>
+    <div class="g-wrapper">
+      <h2>
+        いつでもどこでも楽しめる<br />
+        「パワポカラオケ」
+      </h2>
+
+      <section>
+        <h3>パワポカラオケとは</h3>
+
+        <ol>
+          <li>
+            <p>ランダムに決められたテーマで</p>
+            <figure>
+              <img src="/assets/text-lines.svg" alt="" />
+            </figure>
+          </li>
+          <li>
+            <p>ランダムに出てくる画像で</p>
+            <figure>
+              <img src="/assets/picture.svg" alt="" />
+            </figure>
+          </li>
+          <li>
+            <p>即興でプレゼンをおこなう</p>
+            <figure>
+              <img src="/assets/presentation.svg" alt="" />
+            </figure>
+          </li>
+        </ol>
+
+        <p><strong>シンプルで・簡単で、<br />高度で複雑な</strong>遊びです。</p>
+
+        <div>
+          <a class="g-cta" routerLink="/slideshow">遊んでみる（無料）</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="g-wrapper">
+      <ul>
+        <li>
+          <a routerLink="/slideshow">パワポカラオケアプリケーション</a>
+        </li>
+        <li>
+          <a href="https://github.com/kyoyababa" target="_blank">開発者 (Github)</a>
+        </li>
+        <li>
+          <a href="https://github.com/kyoyababa/powerpoint-karaoke" target="_blank">技術仕様 (Github repository)</a>
+        </li>
+        <li>
+          <a href="" target="_blank">技術仕様 (Qiita)</a>
+        </li>
+      </ul>
+
+      <small>このぺージおよびこのアプリケーションは、<a href="https://twitter.com/pawapokaraoke" target="_blank" rel="nofollow">全NIPPONパワポカラオケ協会</a>とは無関係です。</small>
+    </div>
+  </footer>
+</div>
+
+<div *ngIf="isFetching()" class="g-loadingBar">
+  <!-- Author: https://codepen.io/Manoz/pen/pydxK -->
+</div>
