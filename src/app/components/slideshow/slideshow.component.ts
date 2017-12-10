@@ -12,11 +12,11 @@ import { UtilsService } from '../../services/utils.service';
   styleUrls: ['./slideshow.component.scss']
 })
 export class SlideshowComponent implements OnInit {
-  public appStarted: boolean = false;
   public selected: string;
 
   private items: Array<string>;
   public images: Array<string>;
+  private slideLength: number = 5;
   private currentSlideNumber: number;
 
   constructor(
@@ -32,7 +32,6 @@ export class SlideshowComponent implements OnInit {
   }
 
   private initialize(): void {
-    this.appStarted = false;
     this.selected = '';
     this.items = [];
     this.images = [];
@@ -81,7 +80,7 @@ export class SlideshowComponent implements OnInit {
     });
   }
 
-  public getRandomImages(): void {
+  private getRandomImages(): void {
     const url = 'http://api.flickr.com/services/feeds/photos_public.gne';
     const target = `https://cors-allow.azurewebsites.net/?url=${url}`;
 
@@ -100,13 +99,9 @@ export class SlideshowComponent implements OnInit {
 
         const shuffledImage = this.utilsService.shuffle(images);
 
-        this.images = [
-          shuffledImage[0],
-          shuffledImage[1],
-          shuffledImage[2],
-          shuffledImage[3],
-          shuffledImage[4]
-        ];
+        for (let i = 0; i < this.slideLength; i++) {
+          this.images.push(shuffledImage[i]);
+        }
       });
     });
   }

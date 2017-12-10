@@ -13,6 +13,7 @@ import { UtilsService } from '../../services/utils.service';
 })
 export class LandingComponent implements OnInit {
   public images: Array<string> = [];
+  private imagesLength: number = 4;
 
   constructor(
     private httpService: HttpClient,
@@ -29,7 +30,7 @@ export class LandingComponent implements OnInit {
     return this.images.length === 0;
   }
 
-  public getRandomImages(): void {
+  private getRandomImages(): void {
     const url = 'http://api.flickr.com/services/feeds/photos_public.gne';
     const target = `https://cors-allow.azurewebsites.net/?url=${url}`;
 
@@ -48,12 +49,9 @@ export class LandingComponent implements OnInit {
 
         const shuffledImage = this.utilsService.shuffle(images);
 
-        this.images = [
-          shuffledImage[0],
-          shuffledImage[1],
-          shuffledImage[2],
-          shuffledImage[3]
-        ];
+        for (let i = 0; i < this.imagesLength; i++) {
+          this.images.push(shuffledImage[i]);
+        }
       });
     });
   }
