@@ -22,4 +22,10 @@ export class UtilsService {
   public getRandom(array: Array<any>): any {
     return array[Math.floor(Math.random() * array.length)];
   }
+
+  public removeDuplicateValues(array: Array<any>): Array<any> {
+    return array.filter((x: Array<any>, i: number, self: any) => {
+      return self.indexOf(x) === i;
+    });
+  }
 }

@@ -16,6 +16,8 @@ export class SlideshowComponent implements OnInit {
 
   private items: Array<string>;
   public images: Array<string>;
+  public timer: string;
+  private shouldTimer: boolean = false;
   private slideLength: number = 5;
   private currentSlideNumber: number;
 
@@ -75,7 +77,7 @@ export class SlideshowComponent implements OnInit {
           }
         }
 
-        this.items = items;
+        this.items = this.utilsService.removeDuplicateValues(items);
       });
     });
   }
@@ -108,6 +110,29 @@ export class SlideshowComponent implements OnInit {
 
   public onSelect(): void {
     this.selected = this.utilsService.getRandom(this.items);
+
+    this.startTimer();
+  }
+
+  private startTimer(): void {
+    this.shouldTimer = true;
+    let timerValue: number = 0;
+    const convertTimerValueAsString = (n) => {
+      const minutes = Math.floor(n / 60);
+      const seconds = (n % 60) >= 10 ? (n % 60) : '0' + (n % 60);
+      return `${minutes}:${seconds}`;
+    };
+
+    const startTimerAsInterval = setInterval(() => {
+      timerValue++;
+      this.timer = convertTimerValueAsString(timerValue);
+      if (!this.shouldTimer) clearInterval(startTimerAsInterval);
+    }, 1000);
+  }
+
+  private stopTimer(): void {
+    this.shouldTimer = false;
+    this.timer = null;
   }
 
   public goToNext(): void {
@@ -126,5 +151,6 @@ export class SlideshowComponent implements OnInit {
 
   public restart(): void {
     this.initialize();
+    this.stopTimer();
   }
 }
